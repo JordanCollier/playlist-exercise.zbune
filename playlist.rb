@@ -8,6 +8,8 @@ class Playlist
   def initialize(name)
     @name = name
     @playlist = []
+    @current_song = nil
+    @song_number = 0
   end
 
   def is_empty?
@@ -47,11 +49,16 @@ class Playlist
   end
 
   def now_playing
-    
+    @current_song
   end
 
   def play
+    @current_song = @playlist[@song_number]
+  end
 
+  def next
+    @song_number += 1
+    self.play
   end
 
 
